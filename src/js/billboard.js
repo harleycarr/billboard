@@ -9,15 +9,19 @@ var billboard = function (options) {
     $background.append($bgImage);
 
     $background.css({
-        position: 'relative',
+        position: 'absolute',
         'z-index': 100
     });
 
     $('#canvas').css({
         'position': 'absolute',
         'z-index': 99
-
     });
+
+    window.points = options.coordinates;
+    window.options.image = options.dynamicImage;
+
+    initProjection();
 };
 
 $(document).ready(function(){

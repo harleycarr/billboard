@@ -6,30 +6,25 @@
  */
 
 var points = [
-    [337, 40],
-    [633, 114],
-    [335, 480],
-    [651, 529]
+    [0, 0],
+    [1, 0],
+    [0, 1],
+    [1, 1]
 ];
 
 var options = {
     wireframe: true,
     image: 'images/billboard.png',
     target: '#canvas',
-    subdivisionLimit: 5,
-    patchSize: 64
+    subdivisionLimit: 8,
+    patchSize: 10
 };
 
-var refresh, update;
+var refresh, update, initProjection;
 
 (function () {
     var canvas = null, ctx = null, transform = null;
     var image = null, iw = 0, ih = 0;
-
-    $(document).ready(function () {
-        init();
-        refresh();
-    });
 
     /**
      * Refresh image.
@@ -43,10 +38,12 @@ var refresh, update;
     /**
      * Initialize the handles and canvas.
      */
-    function init() {
+    initProjection = function init() {
         // Create canvas and load image.
         canvas = bindCanvas(0, 0, 1, 1);
-    }
+        refresh();
+        update();
+    };
 
     /**
      * Update the display to match a new point configuration.
@@ -254,11 +251,10 @@ var refresh, update;
         else {
             canvas = $('<canvas width="'+ width +'" height="'+ height +'"></canvas>');
             $(options.target).append(canvas);
-            canvas = $(options.target).attr("width", width).attr("height", height);
             canvas = canvas[0];
         }
 
-        canvas.style.position = "relative";
+        canvas.style.position = "absolute";
         return canvas;
     }
 
