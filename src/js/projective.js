@@ -22,15 +22,12 @@ var options = {
 var refresh, update;
 
 (function () {
-
-    var $handles;
-    var drag = null;
-    var offset = null;
     var canvas = null, ctx = null, transform = null;
     var image = null, iw = 0, ih = 0;
 
     $(document).ready(function () {
         init();
+        refresh();
     });
 
     /**
@@ -40,48 +37,14 @@ var refresh, update;
         image = new Image();
         image.onload = update;
         image.src = options.image;
-    }
+    };
 
     /**
      * Initialize the handles and canvas.
      */
     function init() {
-        // Position handles.
-        $handles = $('div.handle').each(function (i) {
-            this.index = i;
-            $(this).css({
-                left: points[this.index][0],
-                top: points[this.index][1]
-            });
-        });
-
-        // Install mouse handler for drag handles.
-        $handles.mousedown(function (event) {
-            drag = this.index;
-            offset = { x: event.pageX - parseInt($(this).css('left')), y: event.pageY - parseInt($(this).css('top')) };
-            return false;
-        });
-
-        // Install mouse capturing events.
-        $(document).mousemove(function (event) {
-            if (drag != null) {
-                points[drag][0] = event.pageX - offset.x;
-                points[drag][1] = event.pageY - offset.y;
-                $handles[drag].style.left = points[drag][0] +'px';
-                $handles[drag].style.top = points[drag][1] +'px';
-                update();
-            }
-        }).mouseup(function () {
-            drag = null;
-        });
-
         // Create canvas and load image.
-        canvas = createCanvas(0, 0, 1, 1);
-
-        refresh();
-
-        // Render image.
-        update();
+        canvas = bindCanvas(0, 0, 1, 1);
     }
 
     /**
@@ -144,8 +107,7 @@ var refresh, update;
             ctx.closePath();
             ctx.stroke();
         }
-
-    }
+    };
 
     /**
      * Render a projective patch.
@@ -278,7 +240,7 @@ var refresh, update;
     /**
      * Create a canvas at the specified coordinates.
      */
-    function createCanvas(x, y, width, height) {
+    function bindCanvas(x, y, width, height) {
         // Create <canvas>
         var canvas;
         if (typeof G_vmlCanvasManager != 'undefined') {
@@ -289,8 +251,7 @@ var refresh, update;
             canvas = G_vmlCanvasManager.initElement(canvas);
         }
         else {
-            canvas = $('<canvas width="'+ width +'" height="'+ height +'"></canvas>');
-            $('#canvas').append(canvas);
+            canvas = $("#canvas").attr("width", width).attr("height", height);
             canvas = canvas[0];
         }
 
