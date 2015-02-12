@@ -6,15 +6,16 @@
  */
 
 var points = [
-    [100, 100],
-    [200 + Math.random() * 200, 100],
-    [100, 200 + Math.random() * 200],
-    [200 + Math.random() * 200, 200 + Math.random() * 200]
+    [337, 40],
+    [633, 114],
+    [335, 480],
+    [651, 529]
 ];
 
 var options = {
     wireframe: true,
     image: 'images/billboard.png',
+    target: '#canvas',
     subdivisionLimit: 5,
     patchSize: 64
 };
@@ -247,14 +248,17 @@ var refresh, update;
             canvas = document.createElement('canvas');
             canvas.width = width;
             canvas.height = height;
-            $('#canvas').appendChild(canvas);
+            $(options.target).appendChild(canvas);
             canvas = G_vmlCanvasManager.initElement(canvas);
         }
         else {
-            canvas = $("#canvas").attr("width", width).attr("height", height);
+            canvas = $('<canvas width="'+ width +'" height="'+ height +'"></canvas>');
+            $(options.target).append(canvas);
+            canvas = $(options.target).attr("width", width).attr("height", height);
             canvas = canvas[0];
         }
 
+        canvas.style.position = "relative";
         return canvas;
     }
 
