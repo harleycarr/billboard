@@ -1,7 +1,7 @@
 var imageCnt = 0;
 function changeImage() {
     imageCnt = (imageCnt + 1) % 3;
-    options.image = 'images/image0.png';
+    options.image = 'images/billboard.png';
     refresh();
 }
 
