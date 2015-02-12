@@ -1,0 +1,38 @@
+body {
+    height: 100%;
+    font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+}
+
+#demo {
+    position: relative;
+    height: 100%;
+}
+
+div.handle {
+    position: absolute;
+    background: #39f;
+    width: 9px;
+    height: 9px;
+    border: 1px solid black;
+    margin-left: -5px;
+    margin-top: -5px;
+    z-index: 2;
+}
+
+#canvas canvas {
+    position: absolute;
+}
+
+form {
+    float: right;
+    margin-right: 5em;
+}
+form div {
+    margin: 1em;
+}
+
+form div, .box {
+    display: block;
+    padding: 0.5em;
+    background: #cdf;
+}
