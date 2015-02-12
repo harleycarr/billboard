@@ -8,27 +8,17 @@
     <script src="js/scripts.js"></script>
     <script src="js/matrix.js"></script>
     <script src="js/projective.js"></script>
+    <script src="js/billboard.js"></script>
 </head>
 <body>
-<h2>Projective texturing using Canvas and JavaScript</h2>
 
-<div id="demo">
-    <div class="handle"></div>
-    <div class="handle"></div>
-    <div class="handle"></div>
-    <div class="handle"></div>
+<div id="target"></div>
 
-    <div id="canvas"></div>
-</div>
-
-<p class="box"><strong>Drag the blue handles or change the settings to the right.</strong></p>
-
-
-<form>
-    <div><button onclick="changeImage(); return false;">Change image</button><button onclick="if (!timer) runDemo(); else stopDemo(); return false;" id="demo-button">Run Demo</button></div>
-    <div><label><input type="checkbox" value="1" checked="checked" onchange="options.wireframe = this.checked; update();"> Show subdivision wireframe</label></div>
-    <div><label><strong>Patch size</strong>: <input type="text" size="3" value="64" onkeyup="options.patchSize = this.value; update()"> pixels</label></div>
-    <div><label><strong>Subdivision limit</strong>: <input type="text" size="3" value="5" onkeyup="options.subdivisionLimit = this.value; update()"> steps</label></div>
-</form>
+<!--<form>-->
+    <!--<div><button onclick="changeImage(); return false;">Change image</button><button onclick="if (!timer) runDemo(); else stopDemo(); return false;" id="demo-button">Run Demo</button></div>-->
+    <!--<div><label><input type="checkbox" value="1" checked="checked" onchange="options.wireframe = this.checked; update();"> Show subdivision wireframe</label></div>-->
+    <!--<div><label><strong>Patch size</strong>: <input type="text" size="3" value="64" onkeyup="options.patchSize = this.value; update()"> pixels</label></div>-->
+    <!--<div><label><strong>Subdivision limit</strong>: <input type="text" size="3" value="5" onkeyup="options.subdivisionLimit = this.value; update()"> steps</label></div>-->
+<!--</form>-->
 </body>
 </html>

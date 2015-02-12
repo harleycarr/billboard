@@ -8,15 +8,10 @@ body {
     height: 100%;
 }
 
-div.handle {
-    position: absolute;
-    background: #39f;
-    width: 9px;
-    height: 9px;
-    border: 1px solid black;
-    margin-left: -5px;
-    margin-top: -5px;
-    z-index: 2;
+
+div.billboard-background {
+    width: 200px;
+    height: 200px;
 }
 
 #canvas canvas {
