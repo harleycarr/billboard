@@ -15,18 +15,4 @@ $(document).ready(function(){
     };
 
     billboard(options);
-
-    options = {
-        target: document.getElementById('target2'),
-        billboardImage: 'images/billboard.png',
-        dynamicImage: 'images/testImage.jpg',
-        coordinates: [
-            [337, 40],
-            [633, 114],
-            [335, 480],
-            [651, 529]
-        ]
-    };
-
-    billboard(options);
 });
