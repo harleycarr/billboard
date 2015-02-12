@@ -14,7 +14,7 @@ var points = [
 
 var options = {
     wireframe: true,
-    image: 'images/billboard.png',
+    image: 'images/testImage.jpg',
     subdivisionLimit: 5,
     patchSize: 64
 };
