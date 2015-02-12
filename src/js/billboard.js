@@ -13,7 +13,11 @@ var billboard = function (options) {
         'z-index': 100
     });
 
-    $('#canvas').css('z-index', 99);
+    $('#canvas').css({
+        'position': 'absolute',
+        'z-index': 99
+
+    });
 };
 
 $(document).ready(function(){
